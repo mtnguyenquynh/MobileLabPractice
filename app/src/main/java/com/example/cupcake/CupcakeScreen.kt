@@ -49,6 +49,8 @@ import com.example.cupcake.ui.OrderSummaryScreen
 import com.example.cupcake.ui.OrderViewModel
 import com.example.cupcake.ui.SelectOptionScreen
 import com.example.cupcake.ui.StartOrderScreen
+import junit.framework.TestCase.assertEquals
+import org.junit.Test
 
 /**
  * enum values that represent the screens in the app
@@ -63,6 +65,12 @@ enum class CupcakeScreen(@StringRes val title: Int) {
 /**
  * Composable that displays the topBar and displays back button if back navigation is possible.
  */
+
+@Test
+fun cupcakeNavHost_verifyStartDestination() {
+    assertEquals(CupcakeScreen.Start.name, navController.currentBackStackEntry?.destination?.route)
+
+}
 @Composable
 fun CupcakeAppBar(
     currentScreen: CupcakeScreen,
